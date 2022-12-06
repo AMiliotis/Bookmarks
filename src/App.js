@@ -5,6 +5,29 @@ import Chips from "./components/Chips";
 import FloatAB from "./components/Fab";
 import BookMarks from "./components/BookMarks";
 import EditDialog from "./components/EditDialog";
+import { createTheme, ThemeProvider } from "@mui/material";
+
+const theme = createTheme({
+  palette: {
+    type: "light",
+    primary: {
+      main: "#091e52",
+    },
+    secondary: {
+      main: "#4d3cc7",
+    },
+    info: {
+      main: "#017f10",
+    },
+    text: {
+      secondary: "black",
+    },
+    background: {
+      default: "red",
+      paper: "pink",
+    },
+  },
+});
 
 let initialArray = [];
 
@@ -32,35 +55,38 @@ function App() {
   //Test
 
   return (
-    <React.Fragment>
-      <Header />
-      <Chips
-        numberOfLBm={numberOfL}
-        numberOfPBm={numberOfP}
-        numberOfWBm={numberOfW}
-      />
-      <FloatAB
-        bookmark={bookmark}
-        setBookmark={setBookmark}
-        accrdArray={accrdArray}
-        setAccrdArray={setAccrdArray}
-      />
-      <BookMarks
-        accrdArray={accrdArray}
-        openEdit={openEdit}
-        setOpenEdit={setOpenEdit}
-        setBookmark={setBookmark}
-        setAccrdArray={setAccrdArray}
-      />
-      <EditDialog
-        openEdit={openEdit}
-        setBookmark={setBookmark}
-        bookmark={bookmark}
-        setOpenEdit={setOpenEdit}
-        accrdArray={accrdArray}
-        setAccrdArray={setAccrdArray}
-      />
-    </React.Fragment>
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        {" "}
+        <Header />
+        <Chips
+          numberOfLBm={numberOfL}
+          numberOfPBm={numberOfP}
+          numberOfWBm={numberOfW}
+        />
+        <FloatAB
+          bookmark={bookmark}
+          setBookmark={setBookmark}
+          accrdArray={accrdArray}
+          setAccrdArray={setAccrdArray}
+        />
+        <BookMarks
+          accrdArray={accrdArray}
+          openEdit={openEdit}
+          setOpenEdit={setOpenEdit}
+          setBookmark={setBookmark}
+          setAccrdArray={setAccrdArray}
+        />
+        <EditDialog
+          openEdit={openEdit}
+          setBookmark={setBookmark}
+          bookmark={bookmark}
+          setOpenEdit={setOpenEdit}
+          accrdArray={accrdArray}
+          setAccrdArray={setAccrdArray}
+        />
+      </React.Fragment>
+    </ThemeProvider>
   );
 }
 
