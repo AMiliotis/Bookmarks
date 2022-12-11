@@ -39,7 +39,7 @@ export default function Counter({ counter, setCounter }) {
         <Button
           sx={{ bgcolor: "orange", color: "black" }}
           onClick={() => {
-            localStorage.clear();
+            localStorage.removeItem("MY_COUNTER");
             window.location.reload(false);
           }}
           variant="contained"
