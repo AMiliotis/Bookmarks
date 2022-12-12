@@ -7,8 +7,13 @@ export default function Counter({ counter, setCounter }) {
   return (
     <React.Fragment>
       <AppBar>
-        <Typography>
-          You can also try my <Link to="/">bookmarks!</Link>
+        <Typography sx={{ color: "white" }}>
+          You can also try my{" "}
+          <Link to="/">
+            <Typography display="inline" sx={{ color: "green" }}>
+              bookmarks!
+            </Typography>
+          </Link>
         </Typography>
       </AppBar>
       <Box
@@ -20,7 +25,7 @@ export default function Counter({ counter, setCounter }) {
         justifyContent="center"
         alignItems="center"
       >
-        <Typography variant="h1" fontSize={120}>
+        <Typography sx={{ color: "white" }} variant="h1" fontSize={120}>
           {counter}
         </Typography>
       </Box>
@@ -31,13 +36,20 @@ export default function Counter({ counter, setCounter }) {
         </Typography>
         , if you want to
         <Typography fontWeight="bold" display="inline" sx={{ color: "red" }}>
-          &nbsp; delete
+          {" "}
+          delete
         </Typography>{" "}
         the saved state click the button bellow
       </Typography>
       <Box marginTop={1}>
         <Button
-          sx={{ bgcolor: "orange", color: "black" }}
+          sx={{
+            bgcolor: "orange",
+            color: "black",
+            "&:hover": {
+              backgroundColor: "orangered",
+            },
+          }}
           onClick={() => {
             localStorage.removeItem("MY_COUNTER");
             window.location.reload(false);
@@ -57,13 +69,23 @@ export default function Counter({ counter, setCounter }) {
         <ButtonGroup size="large" variant="text" aria-label="text button group">
           <Button
             variant="contained"
-            sx={{ bgcolor: "red" }}
+            sx={{
+              bgcolor: "red",
+              "&:hover": {
+                backgroundColor: "darkred",
+              },
+            }}
             onClick={() => setCounter((prevCount) => prevCount - 1)}
           >
             Minus
           </Button>
           <Button
-            sx={{ bgcolor: "green" }}
+            sx={{
+              bgcolor: "green",
+              "&:hover": {
+                backgroundColor: "darkgreen",
+              },
+            }}
             variant="contained"
             onClick={() => setCounter((prevCount) => prevCount + 1)}
           >
