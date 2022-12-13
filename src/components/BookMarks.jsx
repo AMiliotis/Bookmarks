@@ -32,7 +32,13 @@ export default function BookMarks({
   };
 
   return (
-    <Stack direction="row" marginLeft={3} marginTop={4} marginRight={3}>
+    <Stack
+      alignItems="flex-start"
+      direction="row"
+      marginLeft={3}
+      marginTop={4}
+      marginRight={3}
+    >
       {" "}
       <Stack
         direction="column"
