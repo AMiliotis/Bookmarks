@@ -18,14 +18,14 @@ export default function Counter({ counter, setCounter }) {
       </AppBar>
       <Box
         sx={{
-          background: "gray",
+          background: "linear-gradient(45deg, red, blue)",
         }}
         marginTop={2}
         display="flex"
         justifyContent="center"
         alignItems="center"
       >
-        <Typography sx={{ color: "white" }} variant="h1" fontSize={120}>
+        <Typography sx={{ color: "black" }} variant="h1" fontSize={120}>
           {counter}
         </Typography>
       </Box>
