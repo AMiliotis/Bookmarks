@@ -18,16 +18,16 @@ export default function EditDialog({
   bookmark,
   openEdit,
   setOpenEdit,
-  setAccrdArray,
-  accrdArray,
+  setBookmarkList,
+  bookmarkList,
 }) {
   function handleCloseEdit() {
     setOpenEdit(false);
   }
 
   function editBookmark(id) {
-    setAccrdArray(
-      accrdArray.map((bookm) => {
+    setBookmarkList(
+      bookmarkList.map((bookm) => {
         if (bookm.id === id) {
           return {
             ...bookm,

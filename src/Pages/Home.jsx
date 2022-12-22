@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Chips from "../components/Chips";
-import FloatAB from "../components/Fab";
 import BookMarks from "../components/BookMarks";
 import EditDialog from "../components/EditDialog";
+import CreateBookmarkButton from "../components/Fab";
 
 let initialArray = [];
 
@@ -15,17 +15,17 @@ export default function Home() {
     type: "",
   });
 
-  const [accrdArray, setAccrdArray] = useState(initialArray);
+  const [bookmarkList, setBookmarkList] = useState(initialArray);
   const [openEdit, setOpenEdit] = useState(false);
 
-  let numberOfW = 0;
-  let numberOfL = 0;
-  let numberOfP = 0;
+  let numOfWorkBm = 0;
+  let numOfLeisureBm = 0;
+  let numOfPersonalBm = 0;
 
-  for (const bookm of accrdArray) {
-    if (bookm.type === "Work") numberOfW++;
-    else if (bookm.type === "Personal") numberOfP++;
-    else if (bookm.type === "Leisure") numberOfL++;
+  for (const bookm of bookmarkList) {
+    if (bookm.type === "Work") numOfWorkBm++;
+    else if (bookm.type === "Personal") numOfPersonalBm++;
+    else if (bookm.type === "Leisure") numOfLeisureBm++;
   }
 
   return (
@@ -33,30 +33,30 @@ export default function Home() {
       {" "}
       <Header />
       <Chips
-        numberOfLBm={numberOfL}
-        numberOfPBm={numberOfP}
-        numberOfWBm={numberOfW}
+        numOfLeisureBm={numOfLeisureBm}
+        numOfPersonalBm={numOfPersonalBm}
+        numOfWorkBm={numOfWorkBm}
       />
-      <FloatAB
+      <CreateBookmarkButton
         bookmark={bookmark}
         setBookmark={setBookmark}
-        accrdArray={accrdArray}
-        setAccrdArray={setAccrdArray}
+        bookmarkList={bookmarkList}
+        setBookmarkList={setBookmarkList}
       />
       <BookMarks
-        accrdArray={accrdArray}
+        bookmarkList={bookmarkList}
         openEdit={openEdit}
         setOpenEdit={setOpenEdit}
         setBookmark={setBookmark}
-        setAccrdArray={setAccrdArray}
+        setBookmarkList={setBookmarkList}
       />
       <EditDialog
         openEdit={openEdit}
         setBookmark={setBookmark}
         bookmark={bookmark}
         setOpenEdit={setOpenEdit}
-        accrdArray={accrdArray}
-        setAccrdArray={setAccrdArray}
+        bookmarkList={bookmarkList}
+        setBookmarkList={setBookmarkList}
       />
     </React.Fragment>
   );

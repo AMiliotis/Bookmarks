@@ -16,19 +16,19 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function BookMarks({
-  accrdArray,
+  bookmarkList,
   setOpenEdit,
   setBookmark,
-  setAccrdArray,
+  setBookmarkList,
 }) {
   const handleEdit = (i) => {
     setOpenEdit(true);
-    setBookmark(accrdArray[i]);
+    setBookmark(bookmarkList[i]);
   };
 
   const handleDelete = (index) => {
-    accrdArray.splice(index, 1);
-    setAccrdArray([...accrdArray]);
+    bookmarkList.splice(index, 1);
+    setBookmarkList([...bookmarkList]);
   };
 
   return (
@@ -46,7 +46,7 @@ export default function BookMarks({
         alignItems="flex-start"
         spacing={2}
       >
-        {accrdArray.map((bookm, i) => {
+        {bookmarkList.map((bookm, i) => {
           return bookm.type === "Work" ? (
             <Accordion key={bookm.id} sx={{ bgcolor: "whitesmoke" }}>
               <AccordionSummary
@@ -98,7 +98,7 @@ export default function BookMarks({
         alignItems="center"
         spacing={2}
       >
-        {accrdArray.map((bookm, i) => {
+        {bookmarkList.map((bookm, i) => {
           return bookm.type === "Leisure" ? (
             <Accordion key={bookm.id} sx={{ bgcolor: "whitesmoke" }}>
               <AccordionSummary
@@ -149,7 +149,7 @@ export default function BookMarks({
         alignItems="flex-end"
         spacing={2}
       >
-        {accrdArray.map((bookm, i) => {
+        {bookmarkList.map((bookm, i) => {
           return bookm.type === "Personal" ? (
             <Accordion key={bookm.id} sx={{ bgcolor: "whitesmoke" }}>
               <AccordionSummary

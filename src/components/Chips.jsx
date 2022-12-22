@@ -2,7 +2,11 @@ import { Badge, Chip, Divider } from "@mui/material";
 import { Stack } from "@mui/system";
 import React from "react";
 
-export default function Chips({ numberOfLBm, numberOfPBm, numberOfWBm }) {
+export default function Chips({
+  numOfLeisureBm,
+  numOfPersonalBm,
+  numOfWorkBm,
+}) {
   return (
     <Stack
       sx={{ bgcolor: "lightgray" }}
@@ -19,13 +23,13 @@ export default function Chips({ numberOfLBm, numberOfPBm, numberOfWBm }) {
       spacing={1}
       divider={<Divider orientation="vertical" flexItem />}
     >
-      <Badge badgeContent={numberOfWBm} color="primary">
+      <Badge badgeContent={numOfWorkBm} color="primary">
         <Chip label="Work" />
       </Badge>
-      <Badge badgeContent={numberOfLBm} color="primary">
+      <Badge badgeContent={numOfLeisureBm} color="primary">
         <Chip label="Leisure" />
       </Badge>
-      <Badge badgeContent={numberOfPBm} color="primary">
+      <Badge badgeContent={numOfPersonalBm} color="primary">
         <Chip label="Personal" />
       </Badge>
     </Stack>
