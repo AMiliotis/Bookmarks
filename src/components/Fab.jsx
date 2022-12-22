@@ -18,11 +18,11 @@ import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 
 let nextId = 0;
 
-export default function FloatAB({
+export default function CreateBookmarkButton({
   bookmark,
   setBookmark,
-  accrdArray,
-  setAccrdArray,
+  bookmarkList,
+  setBookmarkList,
 }) {
   const [open, setOpen] = useState(false);
 
@@ -42,8 +42,8 @@ export default function FloatAB({
 
   const createBookmark = (e) => {
     e.preventDefault();
-    setAccrdArray([
-      ...accrdArray,
+    setBookmarkList([
+      ...bookmarkList,
       {
         id: nextId,
         title: bookmark.title,
