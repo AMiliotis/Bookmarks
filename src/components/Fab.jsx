@@ -1,20 +1,8 @@
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Fab,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
+import { Dialog, Fab } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
+import BookmarkDialog from "./shared/BookmarkDialog";
 
 let nextId = 0;
 
@@ -83,58 +71,15 @@ export default function CreateBookmarkButton({
       </Fab>
 
       <Dialog open={open} onClose={handleCloseCreateBookmark}>
-        <DialogTitle>Create a new bookmark</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Please add a Bookmark title, some text and choose what type it is
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="title"
-            onChange={(e) =>
-              setBookmark({ ...bookmark, title: e.target.value })
-            }
-            value={bookmark.title}
-            label="Bookmark Title"
-            type="text"
-            fullWidth
-            variant="outlined"
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="content"
-            onChange={(e) =>
-              setBookmark({ ...bookmark, content: e.target.value })
-            }
-            value={bookmark.content}
-            label="Add information about this bookmark"
-            type="text"
-            fullWidth
-            variant="outlined"
-          />
-          <FormControl fullWidth>
-            <InputLabel id="bookmark-type">Type</InputLabel>
-            <Select
-              labelId="bookmark-type"
-              id="bookmark-type-select"
-              onChange={(e) =>
-                setBookmark({ ...bookmark, type: e.target.value })
-              }
-              value={bookmark.type}
-              label="Type"
-            >
-              <MenuItem value={"Work"}>Work</MenuItem>
-              <MenuItem value={"Leisure"}>Leisure</MenuItem>
-              <MenuItem value={"Personal"}>Personal</MenuItem>
-            </Select>
-          </FormControl>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseCreateBookmark}>Cancel</Button>
-          <Button onClick={createBookmark}>Create</Button>
-        </DialogActions>
+        <BookmarkDialog
+          title="Create a new bookmark"
+          contentText="Please add a Bookmark title, some text and choose what type it is"
+          buttonText="Edit"
+          handleClose={handleCloseCreateBookmark}
+          handleCreateOrEdit={createBookmark}
+          setBookmark={setBookmark}
+          bookmark={bookmark}
+        />
       </Dialog>
     </Box>
   );
