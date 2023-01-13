@@ -74,7 +74,7 @@ export default function CreateBookmarkButton({
         <BookmarkDialog
           title="Create a new bookmark"
           contentText="Please add a Bookmark title, some text and choose what type it is"
-          buttonText="Edit"
+          buttonText="Create"
           handleClose={handleCloseCreateBookmark}
           handleCreateOrEdit={createBookmark}
           setBookmark={setBookmark}
